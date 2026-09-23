@@ -6,6 +6,48 @@ namespace Menagerie {
 
     const mmBuilder: builder.Builder = new builder.Builder();
 
+    export enum StableTheme {
+        Meadow,
+        Muddy,
+        Rocky
+    }
+
+    //% blockId=menagerie_default_stable_mobs block="cows and sheep"
+    //% blockHidden=true
+    export function defaultStableMobs(): AnimalMob[] {
+        return [AnimalMob.Cow, AnimalMob.Sheep];
+    }
+
+    /**
+     * Create a stable for a custom set of mobs
+     * @param width Width of the stable (x axis)
+     * @param depth Depth of the stable (z axis)
+     * @param position Position of the center of the stable
+     * @param mobsToSpawn Mobs to put in the stable
+     * @param theme Theme used for the stable
+     */
+    //% block="create stable with width %width depth %depth at %position for %mobsToSpawn || with %theme theme"
+    //% position.shadow=minecraftCreatePosition
+    //% mobsToSpawn.shadow=menagerie_default_stable_mobs
+    //% theme.defl=StableTheme.Meadow
+    //% expandableArgumentMode=toggle
+    export function createStable(width: number, depth: number, position: Position, mobsToSpawn: AnimalMob[], theme: StableTheme = StableTheme.Meadow): void {
+        position = position.toWorld();
+
+        if (theme == StableTheme.Muddy) {
+            createEnclosure(width, depth, position, MUD, MANGROVE_FENCE);
+            decorateEnclosure(width, depth, position, [MUDDY_MANGROVE_ROOTS], 0.02, 0.04);
+        } else if (theme == StableTheme.Rocky) {
+            createEnclosure(width, depth, position, STONE, COBBLESTONE_WALL);
+            decorateEnclosure(width, depth, position, [COBBLESTONE], 0.02, 0.04);
+        } else {
+            createEnclosure(width, depth, position, GRASS, OAK_FENCE);
+            decorateEnclosure(width, depth, position, [DANDELION, POPPY], 0.02, 0.04);
+        }
+
+        spawnMobs(width, depth, position, mobsToSpawn, 0.02, 0.03);
+    }
+
     /**
      * Create a Sniffer Sanctuary
      * @param width Width of the sanctuary (x axis)
@@ -120,6 +162,10 @@ namespace Menagerie {
     }
 
     function spawnMobs(width: number, depth: number, position: Position, mobsToSpawn: number[], minDensity: number, maxDensity: number,) {
+        if (mobsToSpawn.length == 0) {
+            return;
+        }
+
         const [innerMin, innerMax] = getInnerSquareBounds(width, depth, position);
         const area = (width - 2) * (depth - 2);
         const minCount = Math.floor(area * minDensity);
