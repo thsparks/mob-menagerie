@@ -119,6 +119,222 @@ namespace Menagerie {
         spawnMobs(width, depth, position, [AnimalMob.MushroomCow], 0.02, 0.03);
     }
 
+    /**
+     * Create a Bee Bungalow
+     * @param width Width of the bungalow (x axis)
+     * @param depth Depth of the bungalow (z axis)
+     * @param position Position of the center of the bungalow
+     */
+    //% block="create bee bungalow with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createBeeBungalow(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, GRASS, BIRCH_FENCE);
+        decorateEnclosure(width, depth, position, [YELLOW_FLOWER, BEE_NEST], 0.03, 0.06);
+        spawnMobs(width, depth, position, [AnimalMob.Bee], 0.03, 0.05);
+    }
+
+    /**
+     * Create an Axolotl Aquarium
+     * @param width Width of the aquarium (x axis)
+     * @param depth Depth of the aquarium (z axis)
+     * @param position Position of the center of the aquarium
+     */
+    //% block="create axolotl aquarium with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createAxolotlAquarium(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createAquaticEnclosure(width, depth, position, SAND);
+        spawnMobs(width, depth, position, [AnimalMob.Axolotl], 0.02, 0.04);
+    }
+
+    /**
+     * Create a Goat Grove
+     * @param width Width of the grove (x axis)
+     * @param depth Depth of the grove (z axis)
+     * @param position Position of the center of the grove
+     */
+    //% block="create goat grove with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createGoatGrove(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, STONE, SPRUCE_FENCE);
+        spawnMobs(width, depth, position, [AnimalMob.Goat], 0.01, 0.02);
+    }
+
+    /**
+     * Create a Panda Preserve
+     * @param width Width of the preserve (x axis)
+     * @param depth Depth of the preserve (z axis)
+     * @param position Position of the center of the preserve
+     */
+    //% block="create panda preserve with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createPandaPreserve(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, GRASS, JUNGLE_FENCE);
+        decorateEnclosure(width, depth, position, [BAMBOO], 0.03, 0.06);
+        spawnMobs(width, depth, position, [AnimalMob.Panda], 0.01, 0.02);
+    }
+
+    /**
+     * Create a Parrot Pavilion
+     * @param width Width of the pavilion (x axis)
+     * @param depth Depth of the pavilion (z axis)
+     * @param position Position of the center of the pavilion
+     */
+    //% block="create parrot pavilion with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createParrotPavilion(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, GRASS, JUNGLE_FENCE);
+        spawnMobs(width, depth, position, [AnimalMob.Parrot], 0.03, 0.05);
+    }
+
+    /**
+     * Create a Polar Bear Park
+     * @param width Width of the park (x axis)
+     * @param depth Depth of the park (z axis)
+     * @param position Position of the center of the park
+     */
+    //% block="create polar bear park with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createPolarBearPark(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, PACKED_ICE, SPRUCE_FENCE);
+        decorateEnclosure(width, depth, position, [SNOW], 0.05, 0.1);
+        spawnMobs(width, depth, position, [AnimalMob.PolarBear], 0.01, 0.02);
+    }
+
+    /**
+     * Create a Turtle Terrace
+     * @param width Width of the terrace (x axis)
+     * @param depth Depth of the terrace (z axis)
+     * @param position Position of the center of the terrace
+     */
+    //% block="create turtle terrace with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createTurtleTerrace(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createAquaticEnclosure(width, depth, position, SAND);
+        spawnMobs(width, depth, position, [AnimalMob.SeaTurtle], 0.01, 0.02);
+    }
+
+    /**
+     * Create a Dolphin Lagoon
+     * @param width Width of the lagoon (x axis)
+     * @param depth Depth of the lagoon (z axis)
+     * @param position Position of the center of the lagoon
+     */
+    //% block="create dolphin lagoon with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createDolphinLagoon(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createAquaticEnclosure(width, depth, position, PRISMARINE);
+        spawnMobs(width, depth, position, [AnimalMob.Dolphin], 0.01, 0.02);
+    }
+
+    /**
+     * Create a Fox Forest
+     * @param width Width of the forest (x axis)
+     * @param depth Depth of the forest (z axis)
+     * @param position Position of the center of the forest
+     */
+    //% block="create fox forest with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createFoxForest(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, GRASS, SPRUCE_FENCE);
+        spawnMobs(width, depth, position, [AnimalMob.Fox], 0.02, 0.03);
+    }
+
+    /**
+     * Create a Rabbit Retreat
+     * @param width Width of the retreat (x axis)
+     * @param depth Depth of the retreat (z axis)
+     * @param position Position of the center of the retreat
+     */
+    //% block="create rabbit retreat with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createRabbitRetreat(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, GRASS, BIRCH_FENCE);
+        decorateEnclosure(width, depth, position, [YELLOW_FLOWER], 0.03, 0.06);
+        spawnMobs(width, depth, position, [AnimalMob.Rabbit], 0.03, 0.05);
+    }
+
+    /**
+     * Create a Bat Belfry
+     * @param width Width of the belfry (x axis)
+     * @param depth Depth of the belfry (z axis)
+     * @param position Position of the center of the belfry
+     */
+    //% block="create bat belfry with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createBatBelfry(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, STONE, IRON_BARS);
+        spawnMobs(width, depth, position, [AnimalMob.Bat], 0.03, 0.05);
+    }
+
+    /**
+     * Create a Glow Squid Grotto
+     * @param width Width of the grotto (x axis)
+     * @param depth Depth of the grotto (z axis)
+     * @param position Position of the center of the grotto
+     */
+    //% block="create glow squid grotto with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createGlowSquidGrotto(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createAquaticEnclosure(width, depth, position, PRISMARINE);
+        spawnMobs(width, depth, position, [AnimalMob.Squid, AnimalMob.GlowSquid], 0.02, 0.04);
+    }
+
+    /**
+     * Create a Barnyard Bonanza
+     * @param width Width of the barnyard (x axis)
+     * @param depth Depth of the barnyard (z axis)
+     * @param position Position of the center of the barnyard
+     */
+    //% block="create barnyard bonanza with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createBarnyardBonanza(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, GRASS, OAK_FENCE);
+        decorateEnclosure(width, depth, position, [HAY_BLOCK], 0.01, 0.02);
+        spawnMobs(width, depth, position, [AnimalMob.Chicken, AnimalMob.Cow, AnimalMob.Pig, AnimalMob.Sheep], 0.03, 0.05);
+    }
+
+    /**
+     * Create a Pack Animal Paddock
+     * @param width Width of the paddock (x axis)
+     * @param depth Depth of the paddock (z axis)
+     * @param position Position of the center of the paddock
+     */
+    //% block="create pack animal paddock with width %width depth %depth at %position"
+    //% position.shadow=minecraftCreatePosition
+    export function createPackAnimalPaddock(width: number, depth: number, position: Position): void {
+        position = position.toWorld();
+
+        createEnclosure(width, depth, position, DIRT, ACACIA_FENCE);
+        decorateEnclosure(width, depth, position, [HAY_BLOCK], 0.01, 0.02);
+        spawnMobs(width, depth, position, [AnimalMob.Horse, AnimalMob.Donkey, AnimalMob.Mule, AnimalMob.Llama], 0.02, 0.04);
+    }
+
     function spawnMobs(width: number, depth: number, position: Position, mobsToSpawn: number[], minDensity: number, maxDensity: number,) {
         const [innerMin, innerMax] = getInnerSquareBounds(width, depth, position);
         const area = (width - 2) * (depth - 2);
@@ -153,6 +369,12 @@ namespace Menagerie {
                 blocks.place(item, pos);
             }
         }
+    }
+
+    function createAquaticEnclosure(width: number, depth: number, position: Position, floorMaterial: number) {
+        createEnclosure(width, depth, position, floorMaterial, GLASS);
+        const [innerMin, innerMax] = getInnerSquareBounds(width, depth, position);
+        blocks.fill(WATER, innerMin, innerMax, FillOperation.Replace);
     }
 
     function getMinCornerOfSquare(width: number, depth: number, center: Position) {
